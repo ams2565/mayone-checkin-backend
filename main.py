@@ -63,6 +63,10 @@ def root():
         "timestamp": datetime.utcnow().isoformat() + "Z",
     }
 
+@app.get("/my-ip")
+def my_ip():
+    return {"ip": requests.get("https://api.ipify.org").text}
+
 
 @app.get("/health")
 def health():
